@@ -420,7 +420,7 @@ func (d *Driver) Create() error {
 		Autostart: "1",
 		Memory:    d.Memory,
 		Cores:     d.Cores,
-		Net0:      "virtio,bridge=vmbr0",
+		Net0:      fmt.Sprintf("virtio,bridge=%s", d.NetBridge),
 		SCSI0:     d.StorageFilename,
 		Ostype:    "l26",
 		Name:      d.BaseDriver.MachineName,
